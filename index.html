@@ -33,7 +33,7 @@ a{color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
 .wrap{width:min(1240px,100% - 48px);margin-inline:auto}
 .label{font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px}
+.grid{display:grid;grid-template-columns:minmax(0,1fr);gap:18px;max-width:1080px}
 .grid>*{min-width:0}
 section{padding:120px 0;border-top:1px solid var(--line)}
 
@@ -52,17 +52,18 @@ section{padding:120px 0;border-top:1px solid var(--line)}
 .hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 60%}
 .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,9,.55) 0%,rgba(13,11,9,.15) 35%,rgba(13,11,9,.88) 100%)}
 .hero .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:9vh}
-.hero h1{font:400 clamp(52px,8.6vw,138px)/.92 var(--serif);letter-spacing:-.015em;max-width:12ch}
+.hero h1{font:400 clamp(46px,min(8.6vw,14vh),138px)/.92 var(--serif);letter-spacing:-.015em;max-width:15ch}
 .hero h1 em{font-style:italic;color:var(--foam)}
-.lede{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px;margin-top:40px;align-items:end}
+.lede{display:flex;flex-direction:column;gap:12px;margin-top:26px;max-width:640px}
 .lede p{max-width:46ch;color:var(--foam);font-size:19px}
 .lede p.label{font-size:12px;color:var(--muted)}
 
 /* pint */
 .pour{padding:0;border:0;min-height:100vh;display:flex;align-items:center;background:var(--porter)}
-.pour .grid{align-items:center;padding:100px 0}
-.pint{width:min(300px,62vw);justify-self:center}
-.pint svg{width:100%;height:auto;overflow:visible}
+.pour-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;padding:6vh 0}
+.pour-grid>*{min-width:0}
+.pint{justify-self:center}
+.pint svg{display:block;height:min(76vh,560px);width:auto;max-width:100%;overflow:visible}
 .pour h2{font:400 clamp(64px,10vw,160px)/.9 var(--serif);font-style:italic;letter-spacing:-.02em}
 .pour p{font-size:21px;line-height:1.55;max-width:34ch;margin-top:28px;color:var(--foam)}
 .pour .label{margin-bottom:18px}
@@ -71,7 +72,15 @@ section{padding:120px 0;border-top:1px solid var(--line)}
 .kitchen{padding:120px 0 0;overflow:hidden}
 .kitchen .intro h2{font:400 clamp(40px,5vw,72px)/1 var(--serif)}
 .kitchen .intro p{margin-top:22px;max-width:52ch;color:var(--foam)}
-.track{display:flex;gap:28px;padding:64px 24px 120px max(24px,calc((100vw - 1240px)/2));overflow-x:auto;scroll-snap-type:x mandatory;width:100%}
+.track-pin{display:flex;align-items:center}
+.track{display:flex;gap:28px;padding:56px 24px 96px max(24px,calc((100vw - 1240px)/2));overflow-x:auto;scroll-snap-type:x mandatory;width:100%}
+@media (min-width:861px){
+  html.fx .track-pin{height:100vh}
+  html.fx .track{padding:0 24px 0 max(24px,calc((100vw - 1240px)/2))}
+  html.fx .dish{width:calc(min(54vh,430px)*4/3)}
+  html.fx .dish.tall{width:calc(min(54vh,430px)*311/599)}
+  html.fx .dish figcaption{margin-top:12px;font-size:15px}
+}
 .dish{flex:0 0 auto;width:min(520px,78vw);scroll-snap-align:start}
 .dish.tall{width:min(300px,52vw)}
 .dish img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:saturate(.92) contrast(1.04)}
@@ -98,6 +107,7 @@ html:not(.fx) .row{flex-wrap:wrap;white-space:normal;gap:8px 40px}
 
 /* history */
 .hist figure{border-radius:2px}
+.hist figure{max-width:720px}
 .hist .frame{overflow:hidden;aspect-ratio:652/396}
 .hist img{width:100%;height:100%;object-fit:cover;filter:sepia(.35) contrast(1.05)}
 html.fx .hist img{height:124%;margin-top:-12%}
@@ -118,7 +128,7 @@ html.fx .hist img{height:124%;margin-top:-12%}
 .contact dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 48px;margin-top:56px}
 .contact dl>*{min-width:0}
 .contact dd{margin-top:6px;font-size:18px}
-.hours{width:100%;border-collapse:collapse;margin-top:10px;font:400 16px/1.4 var(--mono)}
+.hours{width:100%;max-width:560px;border-collapse:collapse;margin-top:10px;font:400 16px/1.4 var(--mono)}
 .hours td{padding:9px 0;border-bottom:1px solid var(--line)}
 .hours td:last-child{text-align:right}
 .hours tr.dnes td{color:var(--brass)}
@@ -130,8 +140,8 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
   section{padding:84px 0}
   .top nav a:not(.call){display:none}
   .terrace .photos,.quotes,.contact dl{grid-template-columns:minmax(0,1fr)}
-  .pour .grid{padding:40px 0;gap:18px}
-  .pint{width:min(150px,38vw)}
+  .pour-grid{grid-template-columns:minmax(0,1fr);padding:32px 0;gap:18px}
+  .pint svg{height:min(40vh,300px)}
   .pour p{font-size:18px;margin-top:16px}
   .track{padding-left:24px}
 }
@@ -186,7 +196,7 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
 </section>
 
 <section class="pour" aria-label="Guinness">
-  <div class="wrap grid">
+  <div class="wrap pour-grid">
     <div class="pint" aria-hidden="true">
       <svg viewBox="0 0 240 480">
         <defs>
@@ -220,13 +230,13 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
       <p>Pomalu dušená masa, grilované steaky, jehněčí, ryby a&nbsp;sezónní speciality. Co je čerstvé, během dne dojde.</p>
     </div>
   </div>
-  <div class="track" data-scroller>
+  <div class="track-pin" data-scroller><div class="track" data-scroller>
     <figure class="dish"><img src="img/jidlo1.jpg" width="1400" height="925" loading="lazy" alt="Hovězí z&nbsp;kuchyně Black Horse"><figcaption><span class="label">Hovězí</span>Irské hovězí od vyzkoušených dodavatelů.</figcaption></figure>
     <figure class="dish"><img src="img/jidlo3.jpg" width="799" height="595" loading="lazy" alt="Pečená ryba na pánvi"><figcaption><span class="label">Ryby</span>Některé druhy ryb dovážíme čerstvé — hned druhý den po vylovení.</figcaption></figure>
     <figure class="dish tall"><img src="img/udirna.jpg" width="311" height="599" loading="lazy" alt="Ryby v&nbsp;domácí udírně"><figcaption><span class="label">Udírna</span>Z&nbsp;domácí udírny.</figcaption></figure>
     <figure class="dish"><img src="img/jehneci.jpg" width="1400" height="926" loading="lazy" alt="Pomalu dušená jehněčí kolínka"><figcaption><span class="label">Jehněčí</span>Pomalu dušená masa a&nbsp;jehněčí.</figcaption></figure>
     <figure class="dish"><img src="img/klepytko.jpg" width="800" height="429" loading="lazy" alt="Mořské plody na talíři"><figcaption><span class="label">Moře</span>Čerstvé ryby, ústřice a&nbsp;mořské plody, jak je mají rádi v&nbsp;Irsku.</figcaption></figure>
-  </div>
+  </div></div>
 </section>
 
 <section class="shelf" id="whiskey" aria-label="Irská whiskey">
@@ -329,7 +339,7 @@ window.addEventListener('DOMContentLoaded', function () {
   // 2 — the pint pours with the scroll: tan surge, settles black, the head forms last
   gsap.timeline({ scrollTrigger: { trigger: '.pour', start: 'top top', end: '+=160%', scrub: .6, pin: true } })
     .fromTo('#liquid', { y: 430 }, { y: 0, ease: 'power1.inOut', duration: 1 }, 0)
-    .fromTo('#body', { fill: '#9b7246' }, { fill: '#150c07', ease: 'power2.in', duration: .9 }, .25)
+    .fromTo('#body', { fill: '#9b7246' }, { fill: '#150c07', ease: 'power1.inOut', duration: .5 }, .3)
     .fromTo('#head', { scaleY: .15, transformOrigin: '50% 100%' }, { scaleY: 1, duration: .45 }, .7)
     .from('.pour-copy > *', { y: 40, opacity: 0, stagger: .12, duration: .4 }, .1);
 
@@ -340,7 +350,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var dist = function () { return track.scrollWidth - window.innerWidth; };
     track.style.overflow = 'visible'; track.style.width = 'max-content';
     gsap.to(track, { x: function () { return -dist(); }, ease: 'none',
-      scrollTrigger: { trigger: '.kitchen', start: 'top top', end: function () { return '+=' + dist(); }, scrub: .5, pin: true, invalidateOnRefresh: true } });
+      scrollTrigger: { trigger: '.track-pin', start: 'top top', end: function () { return '+=' + dist(); }, scrub: .5, pin: true, invalidateOnRefresh: true } });
   });
 
   // 4 — the whiskey shelf: two rows slide past each other
