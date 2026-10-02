@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Horse | irská restaurace na Nerudově náměstí, Liberec</title>
+<meta name="description" content="Black Horse, dříve Černý kůň — jedna z nejstarších restaurací v Liberci. Irská kuchyně, Guinness, ochutnávka irské whiskey. Nerudovo nám. 108, rezervace na 485 114 433.">
+<meta name="theme-color" content="#0d0b09">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:title" content="Black Horse — jedna z nejstarších restaurací v Liberci">
+<meta property="og:description" content="Dříve Černý kůň. Irská kuchyně, Guinness a ochutnávka irské whiskey na Nerudově náměstí.">
+<meta property="og:url" content="https://vladislavzachariev-oss.github.io/black-horse/">
+<meta property="og:image" content="https://vladislavzachariev-oss.github.io/black-horse/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesk:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stout:#0d0b09; --porter:#16120e; --cream:#f1e6cf; --foam:#eadcbd; --muted:#a8997e;
+  --brass:#c8964a; --line:rgba(241,230,207,.14);
+  --serif:"Instrument Serif",Georgia,serif; --sans:"Hanken Grotesk",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--stout);color:var(--cream)}
+body{font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+.wrap{width:min(1240px,100% - 48px);margin-inline:auto}
+.label{font:500 12px/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px}
+.grid>*{min-width:0}
+section{padding:120px 0;border-top:1px solid var(--line)}
+
+/* letterhead */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;padding:22px 0}
+.top .wrap{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap}
+.brand{font:400 26px/1 var(--serif)}
+.brand small{display:block;font:500 11px/1.6 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.top nav{display:flex;gap:28px;align-items:baseline}
+.top nav a{font:500 13px/1 var(--mono);letter-spacing:.08em;text-decoration:none;color:var(--foam)}
+.top nav a:hover{color:var(--brass)}
+.top .call{border-bottom:1px solid var(--brass);padding-bottom:4px}
+
+/* hero */
+.hero{position:relative;height:100vh;min-height:620px;overflow:hidden;border:0;padding:0}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:50% 60%}
+.hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,11,9,.55) 0%,rgba(13,11,9,.15) 35%,rgba(13,11,9,.88) 100%)}
+.hero .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:9vh}
+.hero h1{font:400 clamp(52px,8.6vw,138px)/.92 var(--serif);letter-spacing:-.015em;max-width:12ch}
+.hero h1 em{font-style:italic;color:var(--foam)}
+.lede{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:48px;margin-top:40px;align-items:end}
+.lede p{max-width:46ch;color:var(--foam);font-size:19px}
+.lede p.label{font-size:12px;color:var(--muted)}
+
+/* pint */
+.pour{padding:0;border:0;min-height:100vh;display:flex;align-items:center;background:var(--porter)}
+.pour .grid{align-items:center;padding:100px 0}
+.pint{width:min(300px,62vw);justify-self:center}
+.pint svg{width:100%;height:auto;overflow:visible}
+.pour h2{font:400 clamp(64px,10vw,160px)/.9 var(--serif);font-style:italic;letter-spacing:-.02em}
+.pour p{font-size:21px;line-height:1.55;max-width:34ch;margin-top:28px;color:var(--foam)}
+.pour .label{margin-bottom:18px}
+
+/* kitchen */
+.kitchen{padding:120px 0 0;overflow:hidden}
+.kitchen .intro h2{font:400 clamp(40px,5vw,72px)/1 var(--serif)}
+.kitchen .intro p{margin-top:22px;max-width:52ch;color:var(--foam)}
+.track{display:flex;gap:28px;padding:64px 24px 120px max(24px,calc((100vw - 1240px)/2));overflow-x:auto;scroll-snap-type:x mandatory;width:100%}
+.dish{flex:0 0 auto;width:min(520px,78vw);scroll-snap-align:start}
+.dish.tall{width:min(300px,52vw)}
+.dish img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:2px;filter:saturate(.92) contrast(1.04)}
+.dish.tall img{aspect-ratio:311/599}
+.dish figcaption{margin-top:16px;font-size:16px;color:var(--foam);max-width:40ch}
+.dish figcaption .label{display:block;margin-bottom:6px}
+
+/* whiskey shelf */
+.shelf{overflow:hidden}
+.shelf .head{margin-bottom:56px}
+.shelf h2{font:400 clamp(40px,5vw,72px)/1 var(--serif)}
+.shelf .head p{margin-top:18px;color:var(--foam);max-width:44ch}
+.row{display:flex;gap:56px;white-space:nowrap;font:400 clamp(44px,6.4vw,104px)/1.15 var(--serif)}
+.row span:nth-child(even){font-style:italic;color:var(--brass)}
+.row+.row{margin-top:8px}
+html:not(.fx) .row{flex-wrap:wrap;white-space:normal;gap:8px 40px}
+
+/* terrace */
+.terrace .photos{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:24px;margin-top:48px}
+.terrace .photos>*{min-width:0}
+.terrace img{width:100%;height:100%;object-fit:cover;border-radius:2px}
+.terrace h2,.hist h2,.reviews h2,.contact h2{font:400 clamp(40px,5vw,72px)/1 var(--serif)}
+.terrace p,.hist p{margin-top:20px;font-size:19px;color:var(--foam);max-width:48ch}
+
+/* history */
+.hist figure{border-radius:2px}
+.hist .frame{overflow:hidden;aspect-ratio:652/396}
+.hist img{width:100%;height:100%;object-fit:cover;filter:sepia(.35) contrast(1.05)}
+html.fx .hist img{height:124%;margin-top:-12%}
+.hist figcaption{margin-top:14px}
+
+/* reviews */
+.score{font:400 clamp(24px,2.6vw,34px)/1.35 var(--serif);max-width:30ch;color:var(--foam);margin-top:22px}
+.quotes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px 48px;margin-top:64px}
+.quotes>*{min-width:0}
+.quotes blockquote{font:400 21px/1.5 var(--serif);color:var(--cream)}
+.quotes blockquote::before{content:"„"}.quotes blockquote::after{content:"“"}
+.quotes figcaption{margin-top:14px;font:500 13px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted)}
+.quotes .when{display:block;color:var(--brass);margin-bottom:10px;font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+
+/* contact */
+.tel{display:inline-block;font:400 clamp(56px,9vw,132px)/1 var(--serif);text-decoration:none;color:var(--cream);border-bottom:2px solid var(--brass);margin-top:28px}
+.tel:hover{color:var(--brass)}
+.contact dl{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px 48px;margin-top:56px}
+.contact dl>*{min-width:0}
+.contact dd{margin-top:6px;font-size:18px}
+.hours{width:100%;border-collapse:collapse;margin-top:10px;font:400 16px/1.4 var(--mono)}
+.hours td{padding:9px 0;border-bottom:1px solid var(--line)}
+.hours td:last-child{text-align:right}
+.hours tr.dnes td{color:var(--brass)}
+.hours .closed{color:var(--muted)}
+footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 var(--mono);color:var(--muted)}
+
+@media (max-width:860px){
+  .grid,.lede{grid-template-columns:minmax(0,1fr);gap:28px}
+  section{padding:84px 0}
+  .top nav a:not(.call){display:none}
+  .terrace .photos,.quotes,.contact dl{grid-template-columns:minmax(0,1fr)}
+  .pour .grid{padding:40px 0;gap:18px}
+  .pint{width:min(150px,38vw)}
+  .pour p{font-size:18px;margin-top:16px}
+  .track{padding-left:24px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Black Horse",
+  "alternateName": "Černý kůň",
+  "servesCuisine": "Irská",
+  "telephone": "+420 485 114 433",
+  "email": "info@irskaliberec.cz",
+  "address": {"@type": "PostalAddress", "streetAddress": "nám. Nerudovo 108", "postalCode": "460 01", "addressLocality": "Liberec", "addressCountry": "CZ"},
+  "geo": {"@type": "GeoCoordinates", "latitude": 50.771321, "longitude": 15.060787},
+  "hasMap": "https://www.google.com/maps/place/Black+Horse/@50.7713207,15.0607874,17z",
+  "openingHoursSpecification": [
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "11:00", "closes": "14:30"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": ["Tuesday", "Wednesday", "Thursday"], "opens": "11:00", "closes": "22:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "23:00"},
+    {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "23:00"}
+  ],
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.6", "bestRating": "5", "worstRating": "1", "ratingCount": "1960"}
+}
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">Black Horse<small>irská restaurace · dříve Černý kůň</small></div>
+    <nav aria-label="Rychlé odkazy">
+      <a href="#kuchyne">Kuchyně</a>
+      <a href="#whiskey">Whiskey</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="call" href="tel:+420485114433">Rezervace 485 114 433</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" aria-label="Úvod">
+  <img class="hero-img" src="img/interier2.jpg" width="1600" height="890" alt="Bar restaurace Black Horse s&nbsp;pípami">
+  <div class="hero-shade"></div>
+  <div class="wrap">
+    <h1>Jedna z&nbsp;nejstarších restaurací <em>v&nbsp;Liberci.</em></h1>
+    <div class="lede">
+      <p class="label">Nerudovo náměstí · dříve Černý kůň</p>
+      <p>Znovu otevřená. Irská kuchyně, Guinness, irská whiskey a&nbsp;lokální suroviny, které česká země nabízí.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pour" aria-label="Guinness">
+  <div class="wrap grid">
+    <div class="pint" aria-hidden="true">
+      <svg viewBox="0 0 240 480">
+        <defs>
+          <clipPath id="glass"><path d="M22 22 H218 L212 70 Q226 88 210 108 L195 452 Q120 466 45 452 L30 108 Q14 88 28 70 Z"/></clipPath>
+          <linearGradient id="shine" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".16"/><stop offset=".18" stop-color="#fff" stop-opacity="0"/><stop offset=".85" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#fff" stop-opacity=".1"/></linearGradient>
+        </defs>
+        <g clip-path="url(#glass)">
+          <rect x="0" y="0" width="240" height="480" fill="#1c1712"/>
+          <g id="liquid">
+            <rect id="body" x="0" y="64" width="240" height="420" fill="#150c07"/>
+            <rect id="head" x="0" y="30" width="240" height="40" fill="#eadcbd"/>
+          </g>
+          <rect x="0" y="0" width="240" height="480" fill="url(#shine)"/>
+        </g>
+        <path d="M22 22 H218 L212 70 Q226 88 210 108 L195 452 Q120 466 45 452 L30 108 Q14 88 28 70 Z" fill="none" stroke="rgba(241,230,207,.45)" stroke-width="2"/>
+      </svg>
+    </div>
+    <div class="pour-copy">
+      <p class="label">Pivo</p>
+      <h2>Guinness</h2>
+      <p>Irskému černému fešákovi věnujeme zvláštní péči. Veškeré pivo hýčkáme v&nbsp;zachlazeném speciálním prostoru.</p>
+    </div>
+  </div>
+</section>
+
+<section class="kitchen" id="kuchyne" aria-label="Kuchyně">
+  <div class="wrap grid intro">
+    <p class="label">Kuchyně</p>
+    <div>
+      <h2>Lístek není velký ani složitý. O&nbsp;to častěji se mění.</h2>
+      <p>Pomalu dušená masa, grilované steaky, jehněčí, ryby a&nbsp;sezónní speciality. Co je čerstvé, během dne dojde.</p>
+    </div>
+  </div>
+  <div class="track" data-scroller>
+    <figure class="dish"><img src="img/jidlo1.jpg" width="1400" height="925" loading="lazy" alt="Hovězí z&nbsp;kuchyně Black Horse"><figcaption><span class="label">Hovězí</span>Irské hovězí od vyzkoušených dodavatelů.</figcaption></figure>
+    <figure class="dish"><img src="img/jidlo3.jpg" width="799" height="595" loading="lazy" alt="Pečená ryba na pánvi"><figcaption><span class="label">Ryby</span>Některé druhy ryb dovážíme čerstvé — hned druhý den po vylovení.</figcaption></figure>
+    <figure class="dish tall"><img src="img/udirna.jpg" width="311" height="599" loading="lazy" alt="Ryby v&nbsp;domácí udírně"><figcaption><span class="label">Udírna</span>Z&nbsp;domácí udírny.</figcaption></figure>
+    <figure class="dish"><img src="img/jehneci.jpg" width="1400" height="926" loading="lazy" alt="Pomalu dušená jehněčí kolínka"><figcaption><span class="label">Jehněčí</span>Pomalu dušená masa a&nbsp;jehněčí.</figcaption></figure>
+    <figure class="dish"><img src="img/klepytko.jpg" width="800" height="429" loading="lazy" alt="Mořské plody na talíři"><figcaption><span class="label">Moře</span>Čerstvé ryby, ústřice a&nbsp;mořské plody, jak je mají rádi v&nbsp;Irsku.</figcaption></figure>
+  </div>
+</section>
+
+<section class="shelf" id="whiskey" aria-label="Irská whiskey">
+  <div class="wrap grid head">
+    <p class="label">Ochutnávka 0,02&nbsp;l</p>
+    <div>
+      <h2>Irská whiskey, i&nbsp;ta málo známá.</h2>
+      <p>Aby každý mohl ochutnat, nalijeme kteroukoli z&nbsp;nich po dvou centilitrech.</p>
+    </div>
+  </div>
+  <div class="row row-a" data-scroller><span>Jameson</span><span>Jameson 18 let</span><span>Paddy</span><span>Kilbeggan</span><span>Greenspot</span></div>
+  <div class="row row-b" data-scroller><span>Connemara</span><span>Bushmills</span><span>Bushmills Black Bush</span><span>Tullamore Dew</span><span>Jameson</span></div>
+</section>
+
+<section class="terrace" aria-label="Terasa">
+  <div class="wrap grid">
+    <p class="label">Léto</p>
+    <div>
+      <h2>Terasa, gril a&nbsp;domácí udírna.</h2>
+      <p>V&nbsp;letních měsících je otevřená velká, částečně zastřešená terasa, kde připravujeme speciality z&nbsp;grilu a&nbsp;domácí udírny.</p>
+      <div class="photos">
+        <img src="img/terasa2.jpg" width="800" height="554" loading="lazy" alt="Terasa restaurace Black Horse">
+        <img src="img/grilujeme.jpg" width="800" height="600" loading="lazy" alt="Gril na terase">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hist" aria-label="Historie">
+  <div class="wrap grid">
+    <p class="label">Historie</p>
+    <div>
+      <h2>Kdysi Černý kůň.</h2>
+      <p>Jedna z&nbsp;nejstarších restaurací v&nbsp;Liberci. Dnes znovu otevřená, s&nbsp;irskou kuchyní a&nbsp;s&nbsp;Plzní i&nbsp;Kozlem vedle Guinnessu.</p>
+      <figure style="margin-top:40px"><div class="frame"><img src="img/kun.jpg" width="652" height="396" loading="lazy" alt="Historická fotografie sálu restaurace"></div><figcaption class="label">Ze sbírky Black Horse</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" aria-label="Hodnocení">
+  <div class="wrap grid">
+    <p class="label">Google</p>
+    <div>
+      <h2>1&nbsp;960 hodnocení, průměr 4,6.</h2>
+      <p class="score">1&nbsp;465 z&nbsp;nich je pět hvězd, 327 čtyři. Zbytek: 104 tři, 27 dvě a&nbsp;37 jedna.</p>
+      <div class="quotes">
+        <figure><span class="when">Chobotnice a&nbsp;steak</span><blockquote>Skvělá volba. Naprosto splnilo očekávání. Chobotnice skvělá, steak po domluvě báječně připraven, grilovaný ananas lahoda. Moc děkujeme Chef kuchaři.</blockquote><figcaption>Kateřina K.</figcaption></figure>
+        <figure><span class="when">Chowder</span><blockquote>Příjemná restaurace s dobrou hudbou. Milá obsluha. Dávali jsme si tradiční irskou polévku chowder s kousky ryb (pozor byly tam i chobotničky-což nevadilo, protože je milujeme) a grilovaný ananas. Polévka výborná, ale ananas mohl být lepší…</blockquote><figcaption>Barbora M.</figcaption></figure>
+        <figure><span class="when">Terasa</span><blockquote>Vynikajici restaurace, hezke misto, fajn atmosfera, velka terasa. Jedine, co bych vytkla je to, aby servis bral vsechny talire pri dojedeni naraz, az doji posledni…</blockquote><figcaption>Lucie S.</figcaption></figure>
+        <figure><span class="when">Sladkosti</span><blockquote>Ten to podnik mě získal obsluhou i specialitama, které podával na stůl. A Taková chobotnice byla na 5*. SLADKOSTI O TOM SE ANI NEBAVÍM. Jen tak dál.</blockquote><figcaption>Jaroslav V.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt" aria-label="Kontakt a&nbsp;rezervace">
+  <div class="wrap grid">
+    <p class="label">Rezervace stolu</p>
+    <div>
+      <h2>Stůl si zarezervujte telefonem.</h2>
+      <a class="tel" href="tel:+420485114433">485 114 433</a>
+      <dl>
+        <div><dt class="label">Adresa</dt><dd>nám. Nerudovo 108, 460 01 Liberec<br><a href="https://www.google.com/maps/place/Black+Horse/@50.7713207,15.0607874,17z">Otevřít v&nbsp;mapách</a></dd></div>
+        <div><dt class="label">E-mail</dt><dd><a href="mailto:info@irskaliberec.cz">info@irskaliberec.cz</a></dd></div>
+        <div style="grid-column:1/-1"><dt class="label">Otevřeno</dt><dd>
+          <table class="hours">
+            <tr data-d="1"><td>Pondělí</td><td>11:00–14:30</td></tr>
+            <tr data-d="2"><td>Úterý</td><td>11:00–22:00</td></tr>
+            <tr data-d="3"><td>Středa</td><td>11:00–22:00</td></tr>
+            <tr data-d="4"><td>Čtvrtek</td><td>11:00–22:00</td></tr>
+            <tr data-d="5"><td>Pátek</td><td>11:00–23:00</td></tr>
+            <tr data-d="6"><td>Sobota</td><td>12:00–23:00</td></tr>
+            <tr data-d="0"><td>Neděle</td><td class="closed">zavřeno</td></tr>
+          </table>
+        </dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">Ukázka webu — Vladislav Zachariev · fotografie a&nbsp;texty: Black Horse</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script>
+// Everything above is readable without this script. It only adds today's row and the scroll scenes.
+document.querySelectorAll('.hours tr[data-d="' + new Date().getDay() + '"]').forEach(function (r) { r.className = 'dnes'; });
+window.addEventListener('DOMContentLoaded', function () {
+  if (!window.gsap || !window.ScrollTrigger || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  gsap.registerPlugin(ScrollTrigger);
+  document.documentElement.classList.add('fx');
+
+  // 1 — the hero sinks into the room: photo pushes in, headline lifts away faster than the lede (Z-depth)
+  gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })
+    .to('.hero-img', { scale: 1.28, yPercent: 6, ease: 'none' }, 0)
+    .to('.hero-shade', { opacity: .9, ease: 'none' }, 0)
+    .to('.hero h1', { yPercent: -55, ease: 'none' }, 0)
+    .to('.lede', { yPercent: -140, opacity: 0, ease: 'none' }, 0);
+
+  // 2 — the pint pours with the scroll: tan surge, settles black, the head forms last
+  gsap.timeline({ scrollTrigger: { trigger: '.pour', start: 'top top', end: '+=160%', scrub: .6, pin: true } })
+    .fromTo('#liquid', { y: 430 }, { y: 0, ease: 'power1.inOut', duration: 1 }, 0)
+    .fromTo('#body', { fill: '#9b7246' }, { fill: '#150c07', ease: 'power2.in', duration: .9 }, .25)
+    .fromTo('#head', { scaleY: .15, transformOrigin: '50% 100%' }, { scaleY: 1, duration: .45 }, .7)
+    .from('.pour-copy > *', { y: 40, opacity: 0, stagger: .12, duration: .4 }, .1);
+
+  // 3 — the dishes ride sideways while the section is pinned (desktop); phones keep native swipe
+  var mm = gsap.matchMedia();
+  mm.add('(min-width: 861px)', function () {
+    var track = document.querySelector('.track');
+    var dist = function () { return track.scrollWidth - window.innerWidth; };
+    track.style.overflow = 'visible'; track.style.width = 'max-content';
+    gsap.to(track, { x: function () { return -dist(); }, ease: 'none',
+      scrollTrigger: { trigger: '.kitchen', start: 'top top', end: function () { return '+=' + dist(); }, scrub: .5, pin: true, invalidateOnRefresh: true } });
+  });
+
+  // 4 — the whiskey shelf: two rows slide past each other
+  gsap.fromTo('.row-a', { xPercent: 0 }, { xPercent: -28, ease: 'none', scrollTrigger: { trigger: '.shelf', scrub: true } });
+  gsap.fromTo('.row-b', { xPercent: -28 }, { xPercent: 0, ease: 'none', scrollTrigger: { trigger: '.shelf', scrub: true } });
+
+  // 5 — the old photograph drifts against the page
+  gsap.fromTo('.hist img', { yPercent: -9 }, { yPercent: 9, ease: 'none', scrollTrigger: { trigger: '.hist', scrub: true } });
+});
+</script>
+</body>
+</html>
