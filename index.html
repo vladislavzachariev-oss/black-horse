@@ -143,7 +143,11 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
   .pour-grid{grid-template-columns:minmax(0,1fr);padding:32px 0;gap:18px}
   .pint svg{height:min(40vh,300px)}
   .pour p{font-size:18px;margin-top:16px}
-  .track{padding-left:24px}
+  /* phones: the dishes stack — a sideways swipe snapped a card flush to the edge and cut the next
+     one mid-word (Z's phone, 2026-10-02 22:55) */
+  .track{display:grid;grid-template-columns:minmax(0,1fr);gap:44px;overflow:visible;scroll-snap-type:none;padding:44px 24px 72px}
+  .dish,.dish.tall{width:auto}
+  .dish.tall img{aspect-ratio:4/3;object-position:50% 40%}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
