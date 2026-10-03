@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Black Horse | irská restaurace na Nerudově náměstí, Liberec</title>
-<meta name="description" content="Black Horse, dříve Černý kůň — jedna z nejstarších restaurací v Liberci. Irská kuchyně, Guinness, ochutnávka irské whiskey. Nerudovo nám. 108, rezervace na 485 114 433.">
+<title>Black Horse | irská restaurace a hospoda na Nerudově náměstí, Liberec</title>
+<meta name="description" content="Black Horse, dříve Černý kůň — irská restaurace a hospoda v centru Liberce, jedna z nejstarších ve městě. Guinness, Magners, irská whiskey a irská kuchyně. Nerudovo nám. 108, rezervace na 485 114 433.">
 <meta name="theme-color" content="#0d0b09">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
@@ -135,6 +135,44 @@ html.fx .hist img{height:124%;margin-top:-12%}
 .hours .closed{color:var(--muted)}
 footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 var(--mono);color:var(--muted)}
 
+/* film grain — one static layer, no animation (his laptop) */
+body::after{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.07;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* open-now chip */
+.now{display:inline-flex;align-items:center;gap:8px;margin-top:10px;font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--foam)}
+.now::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--muted)}
+.now.open::before{background:#8fbf6a;box-shadow:0 0 0 4px rgba(143,191,106,.18)}
+
+/* motion states — only with JS (html.fx); without it everything is simply there */
+html.fx .reveal-img{clip-path:inset(0 0 100% 0)}
+.split-line{overflow:hidden;padding-bottom:.06em;margin-bottom:-.06em}
+.ph{overflow:hidden;border-radius:2px}
+.ph img{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.dish:hover .ph img{transform:scale(1.045)}
+
+/* questions */
+.faq h2{font:400 clamp(40px,5vw,72px)/1 var(--serif)}
+.qa{margin-top:48px;border-top:1px solid var(--line)}
+.qa details{border-bottom:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:24px 0;
+  font:400 clamp(22px,2.4vw,32px)/1.25 var(--serif)}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary::after{content:"+";font:400 26px/1 var(--mono);color:var(--brass);transition:transform .35s}
+.qa details[open] summary::after{transform:rotate(45deg)}
+.qa summary:hover{color:var(--foam)}
+.qa p{padding:0 0 26px;max-width:60ch;color:var(--foam);font-size:18px}
+
+/* sign-off */
+.mark{font:400 clamp(52px,18.5vw,300px)/.8 var(--serif);letter-spacing:-.035em;white-space:nowrap;color:var(--cream);margin:16px 0 34px}
+.mark em{color:var(--brass)}
+footer .wrap{overflow:hidden}
+footer .base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* smooth scroll (Lenis) */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-stopped{overflow:hidden}
+
 @media (max-width:860px){
   .grid,.lede{grid-template-columns:minmax(0,1fr);gap:28px}
   section{padding:84px 0}
@@ -169,7 +207,24 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "23:00"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "23:00"}
   ],
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.6", "bestRating": "5", "worstRating": "1", "ratingCount": "1960"}
+  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.6", "bestRating": "5", "worstRating": "1", "ratingCount": "1960"},
+  "acceptsReservations": "True",
+  "description": "Irská restaurace a hospoda v centru Liberce, dříve Černý kůň: Guinness, Magners, irská whiskey po 0,02 l, irská kuchyně, letní terasa s grilem a udírnou."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "Je Black Horse irská hospoda?", "acceptedAnswer": {"@type": "Answer", "text": "Ano. Black Horse je irská restaurace a hospoda na Nerudově náměstí v centru Liberce, dříve Černý kůň. Čepujeme Guinness, nalijeme irskou whiskey a vaříme irskou kuchyni."}},
+    {"@type": "Question", "name": "Co čepujete?", "acceptedAnswer": {"@type": "Answer", "text": "Guinness, Pilsner Urquell a Kozel 11°, k tomu irský cider Magners."}},
+    {"@type": "Question", "name": "Můžu ochutnat irskou whiskey?", "acceptedAnswer": {"@type": "Answer", "text": "Ano, kteroukoli z devíti irských whiskey nalijeme po 0,02 l: Jameson, Jameson 18 let, Paddy, Kilbeggan, Greenspot, Connemara, Bushmills, Bushmills Black Bush a Tullamore Dew."}},
+    {"@type": "Question", "name": "Jak si zarezervuji stůl?", "acceptedAnswer": {"@type": "Answer", "text": "Telefonem na 485 114 433."}},
+    {"@type": "Question", "name": "Máte terasu?", "acceptedAnswer": {"@type": "Answer", "text": "V letních měsících je otevřená velká, částečně zastřešená terasa se specialitami z grilu a domácí udírny."}},
+    {"@type": "Question", "name": "Je restaurace bezbariérová?", "acceptedAnswer": {"@type": "Answer", "text": "Podle Google Map má bezbariérový vstup, posezení, toalety i parkování."}},
+    {"@type": "Question", "name": "Kdy máte otevřeno?", "acceptedAnswer": {"@type": "Answer", "text": "Pondělí 11:00–14:30, úterý až čtvrtek 11:00–22:00, pátek 11:00–23:00, sobota 12:00–23:00, v neděli zavřeno."}}
+  ]
 }
 </script>
 </head>
@@ -177,7 +232,7 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
 
 <header class="top">
   <div class="wrap">
-    <div class="brand">Black Horse<small>irská restaurace · dříve Černý kůň</small></div>
+    <div class="brand">Black Horse<small>irská restaurace · dříve Černý kůň</small><span class="now" id="now" hidden></span></div>
     <nav aria-label="Rychlé odkazy">
       <a href="#kuchyne">Kuchyně</a>
       <a href="#whiskey">Whiskey</a>
@@ -235,11 +290,11 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
     </div>
   </div>
   <div class="track-pin" data-scroller><div class="track" data-scroller>
-    <figure class="dish"><img src="img/jidlo1.jpg" width="1400" height="925" loading="lazy" alt="Hovězí z&nbsp;kuchyně Black Horse"><figcaption><span class="label">Hovězí</span>Irské hovězí od vyzkoušených dodavatelů.</figcaption></figure>
-    <figure class="dish"><img src="img/jidlo3.jpg" width="799" height="595" loading="lazy" alt="Pečená ryba na pánvi"><figcaption><span class="label">Ryby</span>Některé druhy ryb dovážíme čerstvé — hned druhý den po vylovení.</figcaption></figure>
-    <figure class="dish tall"><img src="img/udirna.jpg" width="311" height="599" loading="lazy" alt="Ryby v&nbsp;domácí udírně"><figcaption><span class="label">Udírna</span>Z&nbsp;domácí udírny.</figcaption></figure>
-    <figure class="dish"><img src="img/jehneci.jpg" width="1400" height="926" loading="lazy" alt="Pomalu dušená jehněčí kolínka"><figcaption><span class="label">Jehněčí</span>Pomalu dušená masa a&nbsp;jehněčí.</figcaption></figure>
-    <figure class="dish"><img src="img/klepytko.jpg" width="800" height="429" loading="lazy" alt="Mořské plody na talíři"><figcaption><span class="label">Moře</span>Čerstvé ryby, ústřice a&nbsp;mořské plody, jak je mají rádi v&nbsp;Irsku.</figcaption></figure>
+    <figure class="dish"><div class="ph"><img src="img/jidlo1.jpg" width="1400" height="925" loading="lazy" alt="Hovězí z&nbsp;kuchyně Black Horse"></div><figcaption><span class="label">Hovězí</span>Irské hovězí od vyzkoušených dodavatelů.</figcaption></figure>
+    <figure class="dish"><div class="ph"><img src="img/jidlo3.jpg" width="799" height="595" loading="lazy" alt="Pečená ryba na pánvi"></div><figcaption><span class="label">Ryby</span>Některé druhy ryb dovážíme čerstvé — hned druhý den po vylovení.</figcaption></figure>
+    <figure class="dish tall"><div class="ph"><img src="img/udirna.jpg" width="311" height="599" loading="lazy" alt="Ryby v&nbsp;domácí udírně"></div><figcaption><span class="label">Udírna</span>Z&nbsp;domácí udírny.</figcaption></figure>
+    <figure class="dish"><div class="ph"><img src="img/jehneci.jpg" width="1400" height="926" loading="lazy" alt="Pomalu dušená jehněčí kolínka"></div><figcaption><span class="label">Jehněčí</span>Pomalu dušená masa a&nbsp;jehněčí.</figcaption></figure>
+    <figure class="dish"><div class="ph"><img src="img/klepytko.jpg" width="800" height="429" loading="lazy" alt="Mořské plody na talíři"></div><figcaption><span class="label">Moře</span>Čerstvé ryby, ústřice a&nbsp;mořské plody, jak je mají rádi v&nbsp;Irsku.</figcaption></figure>
   </div></div>
 </section>
 
@@ -262,8 +317,8 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
       <h2>Terasa, gril a&nbsp;domácí udírna.</h2>
       <p>V&nbsp;letních měsících je otevřená velká, částečně zastřešená terasa, kde připravujeme speciality z&nbsp;grilu a&nbsp;domácí udírny.</p>
       <div class="photos">
-        <img src="img/terasa2.jpg" width="800" height="554" loading="lazy" alt="Terasa restaurace Black Horse">
-        <img src="img/grilujeme.jpg" width="800" height="600" loading="lazy" alt="Gril na terase">
+        <img class="reveal-img" src="img/terasa2.jpg" width="800" height="554" loading="lazy" alt="Terasa restaurace Black Horse">
+        <img class="reveal-img" src="img/grilujeme.jpg" width="800" height="600" loading="lazy" alt="Gril na terase">
       </div>
     </div>
   </div>
@@ -275,7 +330,7 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
     <div>
       <h2>Kdysi Černý kůň.</h2>
       <p>Jedna z&nbsp;nejstarších restaurací v&nbsp;Liberci. Dnes znovu otevřená, s&nbsp;irskou kuchyní a&nbsp;s&nbsp;Plzní i&nbsp;Kozlem vedle Guinnessu.</p>
-      <figure style="margin-top:40px"><div class="frame"><img src="img/kun.jpg" width="652" height="396" loading="lazy" alt="Historická fotografie sálu restaurace"></div><figcaption class="label">Ze sbírky Black Horse</figcaption></figure>
+      <figure style="margin-top:40px"><div class="frame reveal-img"><img src="img/kun.jpg" width="652" height="396" loading="lazy" alt="Historická fotografie sálu restaurace"></div><figcaption class="label">Ze sbírky Black Horse</figcaption></figure>
     </div>
   </div>
 </section>
@@ -291,6 +346,23 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
         <figure><span class="when">Chowder</span><blockquote>Příjemná restaurace s dobrou hudbou. Milá obsluha. Dávali jsme si tradiční irskou polévku chowder s kousky ryb (pozor byly tam i chobotničky-což nevadilo, protože je milujeme) a grilovaný ananas. Polévka výborná, ale ananas mohl být lepší…</blockquote><figcaption>Barbora M.</figcaption></figure>
         <figure><span class="when">Terasa</span><blockquote>Vynikajici restaurace, hezke misto, fajn atmosfera, velka terasa. Jedine, co bych vytkla je to, aby servis bral vsechny talire pri dojedeni naraz, az doji posledni…</blockquote><figcaption>Lucie S.</figcaption></figure>
         <figure><span class="when">Sladkosti</span><blockquote>Ten to podnik mě získal obsluhou i specialitama, které podával na stůl. A Taková chobotnice byla na 5*. SLADKOSTI O TOM SE ANI NEBAVÍM. Jen tak dál.</blockquote><figcaption>Jaroslav V.</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="dotazy" aria-label="Časté dotazy">
+  <div class="wrap grid">
+    <p class="label">Než přijdete</p>
+    <div>
+      <h2>Na co se lidé ptají.</h2>
+      <div class="qa">
+        <details><summary>Je Black Horse irská hospoda?</summary><p>Irská restaurace i&nbsp;hospoda — na Nerudově náměstí v&nbsp;centru Liberce, dříve Černý kůň. Čepujeme Guinness, nalijeme irskou whiskey a&nbsp;vaříme irskou kuchyni.</p></details>
+        <details><summary>Co čepujete?</summary><p>Guinness, Pilsner Urquell a&nbsp;Kozel 11°. K&nbsp;tomu irský cider Magners.</p></details>
+        <details><summary>Můžu ochutnat irskou whiskey?</summary><p>Kteroukoli z&nbsp;devíti nalijeme po 0,02&nbsp;l — od Jamesonu po Greenspot a&nbsp;Bushmills Black Bush.</p></details>
+        <details><summary>Jak si zarezervuji stůl?</summary><p>Telefonem na <a href="tel:+420485114433">485 114 433</a>.</p></details>
+        <details><summary>Máte terasu?</summary><p>V&nbsp;letních měsících velkou, částečně zastřešenou — se specialitami z&nbsp;grilu a&nbsp;domácí udírny.</p></details>
+        <details><summary>Je restaurace bezbariérová?</summary><p>Podle Google Map má bezbariérový vstup, posezení, toalety i&nbsp;parkování.</p></details>
       </div>
     </div>
   </div>
@@ -321,17 +393,67 @@ footer{padding:40px 0 56px;border-top:1px solid var(--line);font:400 13px/1.6 va
   </div>
 </section>
 
-<footer><div class="wrap">Ukázka webu — Vladislav Zachariev · fotografie a&nbsp;texty: Black Horse</div></footer>
+<footer><div class="wrap">
+  <p class="mark" aria-hidden="true">Black <em>Horse</em></p>
+  <div class="base"><span>Nerudovo nám. 108, Liberec · 485 114 433</span><span>Ukázka webu — Vladislav Zachariev · fotografie a&nbsp;texty: Black Horse</span></div>
+</div></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
 <script>
-// Everything above is readable without this script. It only adds today's row and the scroll scenes.
+// Everything above is readable without this script. It only adds today's row, the open-now chip and the scroll scenes.
 document.querySelectorAll('.hours tr[data-d="' + new Date().getDay() + '"]').forEach(function (r) { r.className = 'dnes'; });
+
+// open-now chip, from the same hours as the table (minutes from midnight; Sunday closed)
+(function () {
+  var H = {0: null, 1: [660, 870], 2: [660, 1320], 3: [660, 1320], 4: [660, 1320], 5: [660, 1380], 6: [720, 1380]};
+  var DAY = ['v neděli', 'v pondělí', 'v úterý', 've středu', 've čtvrtek', 'v pátek', 'v sobotu'];
+  var hm = function (m) { return Math.floor(m / 60) + ':' + String(m % 60).padStart(2, '0'); };
+  var d = new Date(), wd = d.getDay(), m = d.getHours() * 60 + d.getMinutes(), t = H[wd], el = document.getElementById('now');
+  if (t && m >= t[0] && m < t[1]) { el.textContent = 'Teď otevřeno · do ' + hm(t[1]); el.className = 'now open'; }
+  else if (t && m < t[0]) { el.textContent = 'Dnes otevíráme v ' + hm(t[0]); }
+  else { for (var k = 1; k <= 7; k++) { var nd = (wd + k) % 7; if (H[nd]) { el.textContent = 'Zavřeno · otevíráme ' + (k === 1 ? 'zítra' : DAY[nd]) + ' v ' + hm(H[nd][0]); break; } } }
+  el.hidden = false;
+})();
+
 window.addEventListener('DOMContentLoaded', function () {
   if (!window.gsap || !window.ScrollTrigger || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   gsap.registerPlugin(ScrollTrigger);
   document.documentElement.classList.add('fx');
+
+  // 0 — smooth scroll, driven by GSAP's ticker so the pinned scenes stay in step
+  if (window.Lenis) {
+    var lenis = new Lenis({ lerp: 0.11, anchors: true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add(function (t) { lenis.raf(t * 1000); });
+    gsap.ticker.lagSmoothing(0);
+  }
+
+  // 0b — the room lights up, the headline rises line by line out of its own mask, then the rest
+  if (window.SplitText) {
+    gsap.registerPlugin(SplitText);
+    document.fonts.ready.then(function () {
+      var h1 = SplitText.create('.hero h1', { type: 'lines', mask: 'lines', linesClass: 'split-line' });
+      gsap.timeline()
+        .from('.hero-img', { opacity: 0, filter: 'brightness(.25)', duration: 1.7, ease: 'power2.out' }, 0)
+        .from(h1.lines, { yPercent: 108, duration: 1.15, stagger: 0.1, ease: 'power4.out' }, 0.2)
+        .from('.lede > *, .top .wrap > *', { y: 16, opacity: 0, duration: 0.8, stagger: 0.07, ease: 'power2.out' }, 0.6);
+      // section headings: the same line reveal, once, as they come in
+      gsap.utils.toArray('section:not(.hero):not(.pour) h2').forEach(function (h) {
+        var s = SplitText.create(h, { type: 'lines', mask: 'lines', linesClass: 'split-line' });
+        gsap.from(s.lines, { yPercent: 108, duration: 1, stagger: 0.08, ease: 'power4.out', scrollTrigger: { trigger: h, start: 'top 86%' } });
+      });
+      ScrollTrigger.refresh();
+    });
+  }
+
+  // 0c — photos open top-down like a shutter
+  gsap.utils.toArray('.reveal-img').forEach(function (el) {
+    gsap.to(el, { clipPath: 'inset(0 0 0% 0)', duration: 1.3, ease: 'power3.inOut', scrollTrigger: { trigger: el, start: 'top 88%' } });
+  });
+  document.querySelectorAll('.qa details').forEach(function (d) { d.addEventListener('toggle', function () { ScrollTrigger.refresh(); }); });
 
   // 1 — the hero sinks into the room: photo pushes in, headline lifts away faster than the lede (Z-depth)
   gsap.timeline({ scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } })

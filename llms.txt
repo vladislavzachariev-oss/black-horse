@@ -1,0 +1,18 @@
+# Black Horse — irská restaurace a hospoda, Liberec
+
+> Irská restaurace a hospoda na Nerudově náměstí v centru Liberce, jedna z nejstarších restaurací ve městě (dříve Černý kůň). Guinness, Magners, irská whiskey po 0,02 l, irská kuchyně, letní terasa s grilem a domácí udírnou.
+
+- Adresa: nám. Nerudovo 108, 460 01 Liberec
+- Rezervace: telefonem 485 114 433
+- E-mail: info@irskaliberec.cz
+- Otevřeno: Po 11:00–14:30, Út–Čt 11:00–22:00, Pá 11:00–23:00, So 12:00–23:00, Ne zavřeno
+- Čepujeme: Guinness, Pilsner Urquell, Kozel 11°, cider Magners
+- Whiskey (ochutnávka 0,02 l): Jameson, Jameson 18 let, Paddy, Kilbeggan, Greenspot, Connemara, Bushmills, Bushmills Black Bush, Tullamore Dew
+- Kuchyně: pomalu dušená masa, grilované steaky, hamburgery, jehněčí, čerstvé ryby a mořské plody, sezónní speciality
+- Google: 4,6 z 5 (1 960 hodnocení)
+- Bezbariérový vstup, posezení, toalety i parkování (Google Mapy)
+
+## Stránky
+- [Úvod](https://vladislavzachariev-oss.github.io/black-horse/)
+- [Časté dotazy](https://vladislavzachariev-oss.github.io/black-horse/#dotazy)
+- [Kontakt a otevírací doba](https://vladislavzachariev-oss.github.io/black-horse/#kontakt)
