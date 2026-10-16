@@ -115,12 +115,8 @@ html.fx .hist img{height:124%;margin-top:-12%}
 
 /* reviews */
 .score{font:400 clamp(24px,2.6vw,34px)/1.35 var(--serif);max-width:30ch;color:var(--foam);margin-top:22px}
-.quotes{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px 48px;margin-top:64px}
-.quotes>*{min-width:0}
-.quotes blockquote{font:400 21px/1.5 var(--serif);color:var(--cream)}
-.quotes blockquote::before{content:"„"}.quotes blockquote::after{content:"“"}
-.quotes figcaption{margin-top:14px;font:500 13px/1.4 var(--mono);letter-spacing:.06em;color:var(--muted)}
-.quotes .when{display:block;color:var(--brass);margin-bottom:10px;font:500 12px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.glink{font:500 15px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--brass);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:4px}
+.glink:hover{color:var(--cream)}
 
 /* contact */
 .tel{display:inline-block;font:400 clamp(56px,9vw,132px)/1 var(--serif);text-decoration:none;color:var(--cream);border-bottom:2px solid var(--brass);margin-top:28px}
@@ -178,7 +174,7 @@ html.lenis,html.lenis body{height:auto}
   .grid,.lede{grid-template-columns:minmax(0,1fr);gap:28px}
   section{padding:84px 0}
   .top nav a:not(.call){display:none}
-  .terrace .photos,.quotes,.contact dl{grid-template-columns:minmax(0,1fr)}
+  .terrace .photos,.contact dl{grid-template-columns:minmax(0,1fr)}
   .pour-grid{grid-template-columns:minmax(0,1fr);padding:32px 0;gap:18px}
   .pint svg{height:min(40vh,300px)}
   .pour p{font-size:18px;margin-top:16px}
@@ -208,7 +204,6 @@ html.lenis,html.lenis body{height:auto}
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "11:00", "closes": "23:00"},
     {"@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "12:00", "closes": "23:00"}
   ],
-  "aggregateRating": {"@type": "AggregateRating", "ratingValue": "4.6", "bestRating": "5", "worstRating": "1", "ratingCount": "1960"},
   "acceptsReservations": "True",
   "description": "Irská restaurace a hospoda v centru Liberce, dříve Černý kůň: Guinness, Magners, irská whiskey po 0,02 l, irská kuchyně, letní terasa s grilem a udírnou."
 }
@@ -336,18 +331,13 @@ html.lenis,html.lenis body{height:auto}
   </div>
 </section>
 
-<section class="reviews" aria-label="Hodnocení">
+<section class="reviews" aria-label="Profil na Googlu">
   <div class="wrap grid">
     <p class="label">Google</p>
     <div>
-      <h2>1&nbsp;960 hodnocení, průměr 4,6.</h2>
-      <p class="score">1&nbsp;465 z&nbsp;nich je pět hvězd, 327 čtyři. Zbytek: 104 tři, 27 dvě a&nbsp;37 jedna.</p>
-      <div class="quotes">
-        <figure><span class="when">Chobotnice a&nbsp;steak</span><blockquote>Skvělá volba. Naprosto splnilo očekávání. Chobotnice skvělá, steak po domluvě báječně připraven, grilovaný ananas lahoda. Moc děkujeme Chef kuchaři.</blockquote><figcaption>Kateřina K.</figcaption></figure>
-        <figure><span class="when">Chowder</span><blockquote>Příjemná restaurace s dobrou hudbou. Milá obsluha. Dávali jsme si tradiční irskou polévku chowder s kousky ryb (pozor byly tam i chobotničky-což nevadilo, protože je milujeme) a grilovaný ananas. Polévka výborná, ale ananas mohl být lepší…</blockquote><figcaption>Barbora M.</figcaption></figure>
-        <figure><span class="when">Terasa</span><blockquote>Vynikajici restaurace, hezke misto, fajn atmosfera, velka terasa. Jedine, co bych vytkla je to, aby servis bral vsechny talire pri dojedeni naraz, az doji posledni…</blockquote><figcaption>Lucie S.</figcaption></figure>
-        <figure><span class="when">Sladkosti</span><blockquote>Ten to podnik mě získal obsluhou i specialitama, které podával na stůl. A Taková chobotnice byla na 5*. SLADKOSTI O TOM SE ANI NEBAVÍM. Jen tak dál.</blockquote><figcaption>Jaroslav V.</figcaption></figure>
-      </div>
+      <h2>Najdete nás i&nbsp;na Googlu.</h2>
+      <p class="score">Fotky, otevírací dobu a&nbsp;cestu k&nbsp;nám máte v&nbsp;profilu Black Horse na Mapách Google.</p>
+      <p style="margin-top:28px"><a class="glink" href="https://www.google.com/maps/place/Black+Horse/@50.7713207,15.0607874,17z" target="_blank" rel="noopener">Otevřít profil na Googlu</a></p>
     </div>
   </div>
 </section>
@@ -396,7 +386,7 @@ html.lenis,html.lenis body{height:auto}
 
 <footer><div class="wrap">
   <p class="mark" aria-hidden="true">Black <em>Horse</em></p>
-  <div class="base"><span>Nerudovo nám. 108, Liberec · 485 114 433</span><span>Ukázka webu — Vladislav Zachariev · fotografie a&nbsp;texty: Black Horse</span></div>
+  <div class="base"><span>Nerudovo nám. 108, Liberec · 485 114 433</span><span>Ukázka webu — Vladislav Zachariev, <a href="https://whytelynx.cz" target="_blank" rel="noopener" style="color:inherit">Whyte Lynx</a> · fotografie a&nbsp;texty: Black Horse</span></div>
 </div></footer>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
